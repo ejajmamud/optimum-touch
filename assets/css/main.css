@@ -20680,7 +20680,7 @@ select,
 /* Home loan cards layout (keeps existing card design intact) */
 .service-one--home {
   --home-loan-image-h: 248px;
-  --home-loan-content-h: 252px;
+  --home-loan-content-h: 320px;
   --home-loan-card-h: calc(var(--home-loan-image-h) + var(--home-loan-content-h));
   margin-bottom: calc(-1 * var(--home-loan-content-h));
 }
@@ -20824,6 +20824,7 @@ select,
 .service-one--home .service-one__use-list {
   margin: 0 0 12px;
   padding: 0;
+  min-height: 112px;
 }
 
 .service-one--home .service-one__use-list li {
@@ -20957,7 +20958,7 @@ select,
 @media (max-width: 1199px) and (min-width: 768px) {
   .service-one--home {
     --home-loan-image-h: 232px;
-    --home-loan-content-h: 252px;
+    --home-loan-content-h: 300px;
     --home-loan-card-h: calc(var(--home-loan-image-h) + var(--home-loan-content-h));
     margin-bottom: calc(-1 * var(--home-loan-content-h));
   }
@@ -21059,6 +21060,7 @@ select,
   }
 
   .service-one--home .service-one__use-list {
+    min-height: 0;
     margin-bottom: 16px;
   }
 
