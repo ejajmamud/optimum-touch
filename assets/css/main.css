@@ -20811,11 +20811,42 @@ select,
 }
 
 .service-one--home .service-one__content-face--front > p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
   margin-bottom: 0;
+}
+
+.service-one--home .service-one__use-intro {
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.service-one--home .service-one__use-list {
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.service-one--home .service-one__use-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.service-one--home .service-one__use-list li + li {
+  margin-top: 6px;
+}
+
+.service-one--home .service-one__use-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.75;
 }
 
 .service-one--home .service-one__content-face--back > p {
@@ -21024,8 +21055,10 @@ select,
   }
 
   .service-one--home .service-one__content-face--front > p {
-    -webkit-line-clamp: unset;
-    overflow: visible;
+    margin-bottom: 10px;
+  }
+
+  .service-one--home .service-one__use-list {
     margin-bottom: 16px;
   }
 
