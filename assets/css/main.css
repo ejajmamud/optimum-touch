@@ -24237,7 +24237,8 @@ body.mobile-nav-open .whatsapp-float {
   inset: -2%;
   z-index: 0;
   pointer-events: none;
-  background-image: url("../images/hero/hero-f.jpg");
+  /* Backup image was: ../images/hero/hero-f.jpg */
+  background-image: url("../images/hero/hero-alt.png");
   background-size: cover;
   background-position: center 42%;
   transform: scale(1.03);
