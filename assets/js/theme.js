@@ -988,8 +988,8 @@
 
     syncMobileNavState();
 
-    var contactDisplayNumber = "0123285942";
-    var whatsappNumber = "6" + contactDisplayNumber;
+    var contactDisplayNumber = "+60 11-1133 5942";
+    var whatsappNumber = "601111335942";
     var whatsappPrefillMessage = "Hi Optimum Touch team, I found your website and would like to enquire about consultation/appointment. Please assist. Thank you.";
     var whatsappCtaHref = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappPrefillMessage);
 
@@ -1062,7 +1062,7 @@
                 quickLinks: [
                     { href: "#loan-personal", label: "View Checklist" },
                     { href: "apply-now.html", label: "Apply Now" },
-                    { href: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Personal%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
+                    { href: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Personal%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
                 ],
                 card: {
                     id: "loan-personal",
@@ -1077,7 +1077,7 @@
                         "Utilities bill with current address (TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Personal Loan",
-                    ctaHref: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Personal%20Loan%20criteria%20and%20eligibility."
+                    ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Personal%20Loan%20criteria%20and%20eligibility."
                 },
                 faq: [
                     { q: commonFaqOneQuestion, a: commonFaqOneAnswer },
@@ -1094,7 +1094,7 @@
                 quickLinks: [
                     { href: "#loan-business", label: "View Checklist" },
                     { href: "apply-now.html", label: "Apply Now" },
-                    { href: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Business%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
+                    { href: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Business%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
                 ],
                 card: {
                     id: "loan-business",
@@ -1108,7 +1108,7 @@
                         "Utilities bill with current address (TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Business Loan",
-                    ctaHref: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Business%20Loan%20criteria%20and%20eligibility."
+                    ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Business%20Loan%20criteria%20and%20eligibility."
                 },
                 faq: [
                     { q: commonFaqOneQuestion, a: commonFaqOneAnswer },
@@ -1125,7 +1125,7 @@
                 quickLinks: [
                     { href: "#loan-medical", label: "View Checklist" },
                     { href: "apply-now.html", label: "Apply Now" },
-                    { href: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Medical%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
+                    { href: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Medical%20Loan%20criteria%20and%20eligibility.", label: "Contact Now" }
                 ],
                 card: {
                     id: "loan-medical",
@@ -1140,7 +1140,7 @@
                         "Utilities bill with current address (TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Medical Loan",
-                    ctaHref: "https://wa.me/60123285942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Medical%20Loan%20criteria%20and%20eligibility."
+                    ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Medical%20Loan%20criteria%20and%20eligibility."
                 },
                 faq: [
                     { q: commonFaqOneQuestion, a: commonFaqOneAnswer },

@@ -19574,13 +19574,13 @@ select,
 .process-step__content {
   position: relative;
   width: 100%;
-  padding-right: 42px;
+  padding-left: 42px;
 }
 
 .process-step:not(:last-child) .process-step__content::after {
   content: "\2193";
   position: absolute;
-  right: 8px;
+  left: 8px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -19651,11 +19651,11 @@ select,
   }
 
   .process-step__content {
-    padding-right: 36px;
+    padding-left: 36px;
   }
 
   .process-step:not(:last-child) .process-step__content::after {
-    right: 4px;
+    left: 4px;
     font-size: 18px;
   }
 
@@ -19727,11 +19727,11 @@ select,
   }
 
   .process-step__content {
-    padding-right: 30px;
+    padding-left: 30px;
   }
 
   .process-step:not(:last-child) .process-step__content::after {
-    right: 2px;
+    left: 2px;
     font-size: 16px;
   }
 
