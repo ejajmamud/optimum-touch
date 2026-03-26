@@ -31,14 +31,23 @@ if (!is_numeric($loanAmount) || (float) $loanAmount <= 0) {
     exit;
 }
 
-if ($employmentType !== 'job' && $employmentType !== 'self_business') {
+$employmentLabels = [
+    'government' => 'Government',
+    'private' => 'Private',
+    'self_employed' => 'Self Employed',
+    'business' => 'Business',
+];
+
+if (!array_key_exists($employmentType, $employmentLabels)) {
     header('Location: apply-now.html?status=error', true, 303);
     exit;
 }
 
+$requiresEmploymentFields = $employmentType === 'government' || $employmentType === 'private';
+
 $jobPeriodText = 'N/A';
 $salaryText = 'N/A';
-if ($employmentType === 'job') {
+if ($requiresEmploymentFields) {
     if (!is_numeric($jobPeriodMonths) || (int) $jobPeriodMonths < 6) {
         header('Location: apply-now.html?status=error', true, 303);
         exit;
@@ -51,7 +60,7 @@ if ($employmentType === 'job') {
     $salaryText = 'RM' . number_format((float) $salaryMyr, 2, '.', ',');
 }
 
-$employmentLabel = $employmentType === 'job' ? 'Doing Job' : 'Self Business';
+$employmentLabel = $employmentLabels[$employmentType];
 
 $msg = "";
 $msg .= "Name: " . $name . "\r\n\r\n";
@@ -59,8 +68,8 @@ $msg .= "Number: " . $number . "\r\n\r\n";
 $msg .= "Location: " . $location . "\r\n\r\n";
 $msg .= "Loan Amount: RM" . $loanAmount . "\r\n\r\n";
 $msg .= "Employment Type: " . $employmentLabel . "\r\n\r\n";
-$msg .= "Salary (In MYR, if job): " . $salaryText . "\r\n\r\n";
-$msg .= "Job Period (if job): " . $jobPeriodText . "\r\n\r\n";
+$msg .= "Salary (In MYR, if required): " . $salaryText . "\r\n\r\n";
+$msg .= "Job Period (if required): " . $jobPeriodText . "\r\n\r\n";
 
 $headers = "From: support@creditoptimum.com\r\n";
 

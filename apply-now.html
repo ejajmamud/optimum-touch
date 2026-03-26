@@ -181,8 +181,10 @@
                                     <label>Employment Type*</label>
                                     <select id="employmentType" name="employment_type" class="contact-one__form-input custom-select" required>
                                         <option value="">Select Employment Type</option>
-                                        <option value="job">Doing Job</option>
-                                        <option value="self_business">Self Business</option>
+                                        <option value="government">Government</option>
+                                        <option value="private">Private</option>
+                                        <option value="self_employed">Self Employed</option>
+                                        <option value="business">Business</option>
                                     </select>
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
@@ -387,12 +389,12 @@
             }
 
             var syncJobPeriodState = function () {
-                var isJob = employmentType.value === 'job';
-                jobPeriodWrap.style.display = isJob ? '' : 'none';
-                jobSalaryWrap.style.display = isJob ? '' : 'none';
-                jobPeriodMonths.required = isJob;
-                jobSalaryMyr.required = isJob;
-                if (!isJob) {
+                var requiresEmploymentFields = employmentType.value === 'government' || employmentType.value === 'private';
+                jobPeriodWrap.style.display = requiresEmploymentFields ? '' : 'none';
+                jobSalaryWrap.style.display = requiresEmploymentFields ? '' : 'none';
+                jobPeriodMonths.required = requiresEmploymentFields;
+                jobSalaryMyr.required = requiresEmploymentFields;
+                if (!requiresEmploymentFields) {
                     jobPeriodMonths.value = '';
                     jobSalaryMyr.value = '';
                 }
@@ -414,7 +416,7 @@
 
             if (status === 'error') {
                 alertBox.className = 'apply-simple__alert is-error';
-                alertBox.textContent = 'Please complete required fields correctly. For job applicants, salary (in MYR) and minimum job period of 6 months are required.';
+                alertBox.textContent = 'Please complete required fields correctly. For government and private applicants, salary (in MYR) and minimum job period of 6 months are required.';
             } else {
                 return;
             }
