@@ -20671,9 +20671,13 @@ select,
 /* Home loan cards layout (keeps existing card design intact) */
 .service-one--home {
   --home-loan-image-h: 248px;
-  --home-loan-content-h: 320px;
+  --home-loan-content-h: 348px;
   --home-loan-card-h: calc(var(--home-loan-image-h) + var(--home-loan-content-h));
-  margin-bottom: calc(-1 * var(--home-loan-content-h));
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .service-one--home .container {
@@ -20683,10 +20687,15 @@ select,
 .service-one--home .service-one__grid {
   --bs-gutter-x: 30px;
   --bs-gutter-y: 30px;
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 0;
 }
 
 .service-one--home .service-one__grid > [class*="col-"] {
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 
 .service-one--home .service-one__grid .service-one__card {
@@ -20696,6 +20705,9 @@ select,
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
 }
 
 .service-one--home .service-one__card[data-card-target] {
@@ -20742,7 +20754,7 @@ select,
   position: absolute;
   inset: 0;
   min-height: var(--home-loan-content-h);
-  padding: 30px;
+  padding: 30px 30px 112px;
   background-color: #fff;
   box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 4px;
@@ -20755,7 +20767,7 @@ select,
 }
 
 .service-one--home .service-one__content-face .service-icon {
-  z-index: 120;
+  z-index: 160;
 }
 
 .service-one--home .service-one__card:hover .service-icon {
@@ -20876,11 +20888,19 @@ select,
 }
 
 .service-one--home .service-one__content-face .service-one__actions {
-  margin-top: auto;
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 12px;
+}
+
+.service-one--home .service-one__content-face .service-one__actions > * {
+  flex: 0 0 auto;
 }
 
 .service-one--home .service-one__content-face--back .service-one__link {
@@ -20949,9 +20969,20 @@ select,
 @media (max-width: 1199px) and (min-width: 768px) {
   .service-one--home {
     --home-loan-image-h: 232px;
-    --home-loan-content-h: 300px;
+    --home-loan-content-h: 340px;
     --home-loan-card-h: calc(var(--home-loan-image-h) + var(--home-loan-content-h));
-    margin-bottom: calc(-1 * var(--home-loan-content-h));
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .service-one--home .service-one__content-face {
+    padding: 26px 24px 102px;
+  }
+
+  .service-one--home .service-one__content-face .service-one__actions {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
   }
 }
 
@@ -20961,11 +20992,14 @@ select,
     --home-loan-content-h: auto;
     --home-loan-card-h: auto;
     margin-bottom: 0;
+    padding-bottom: 0;
+    background: transparent;
   }
 
   .service-one--home .service-one__grid {
     --bs-gutter-x: 24px;
     --bs-gutter-y: 24px;
+    padding-bottom: 0;
   }
 
   .service-one--home .service-one__grid > [class*="col-"] {
@@ -21056,6 +21090,10 @@ select,
   }
 
   .service-one--home .service-one__content-face .service-one__actions {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
     margin-top: 10px;
   }
 
@@ -21089,25 +21127,37 @@ select,
 
 /* Keep healthy gap between loan cards and next section heading */
 .service-one--home + .feature-one {
-  padding-top: 300px;
+  margin-top: -348px;
+  padding-top: 404px;
+  position: relative;
+  z-index: 1;
 }
 
 .service-one--home + .feature-one .block-title {
-  margin-top: 56px;
+  margin-top: 0;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .service-one--home + .feature-one {
+    margin-top: -340px;
+    padding-top: 396px;
+  }
 }
 
 @media (max-width: 767px) {
   .service-one--home + .feature-one {
-    padding-top: 95px;
+    margin-top: 0;
+    padding-top: 64px;
   }
 
   .service-one--home + .feature-one .block-title {
-    margin-top: 32px;
+    margin-top: 0;
   }
 }
 
 @media (max-width: 425px) {
   .service-one--home + .feature-one {
+    margin-top: 0;
     padding-top: 70px;
   }
 
@@ -24235,26 +24285,7 @@ body.mobile-nav-open .whatsapp-float {
 }
 
 .main-slider--clips::before {
-  content: "OPTIMUM TOUCH ENTERPRISE";
-  position: absolute;
-  left: 50%;
-  top: 44%;
-  z-index: 2;
-  width: min(1600px, 94vw);
-  text-align: center;
-  pointer-events: none;
-  white-space: nowrap;
-  text-transform: uppercase;
-  font-family: var(--heading-font);
-  font-size: clamp(38px, 6.2vw, 112px);
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: rgba(222, 255, 241, 0.07);
-  -webkit-text-stroke: 1px rgba(216, 255, 239, 0.2);
-  text-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
-  opacity: 0.32;
-  transform: translate3d(-50%, -50%, 0);
-  animation: heroBrandHighlight 16s ease-in-out infinite;
+  content: none;
 }
 
 .main-slider--clips::after {
@@ -24435,11 +24466,7 @@ body.mobile-nav-open .whatsapp-float {
 
 @media (max-width: 767px) {
   .main-slider--clips::before {
-    top: 40%;
-    font-size: clamp(22px, 7.4vw, 40px);
-    letter-spacing: 0.1em;
-    opacity: 0.24;
-    -webkit-text-stroke: 0.7px rgba(216, 255, 239, 0.18);
+    content: none;
   }
 
   .main-slider--clips__line {
@@ -24450,9 +24477,7 @@ body.mobile-nav-open .whatsapp-float {
 
 @media (prefers-reduced-motion: reduce) {
   .main-slider--clips::before {
-    animation: none !important;
-    transform: translate3d(-50%, -50%, 0) !important;
-    opacity: 0.22 !important;
+    content: none;
   }
 
   .main-slider--clips__bg,
