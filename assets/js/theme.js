@@ -321,7 +321,7 @@
         "Eligibility Check": "Semakan Kelayakan",
         "Are You?": "Adakah Anda?",
         "Looking for RM 2,000 to RM 20,000": "Mencari RM 2,000 hingga RM 20,000",
-        "Need short tenure: 2-18 months": "Mahukan tempoh singkat: 2-18 bulan",
+        "Need a short tenure: 2-18 months": "Mahukan tempoh singkat: 2-18 bulan",
         "Malaysian citizen": "Warganegara Malaysia",
         "Below 55 years old": "Berumur bawah 55 tahun",
         "Not bankrupt": "Tidak muflis",
@@ -1074,7 +1074,7 @@
                         "Pay slip.",
                         "Personal IC.",
                         "KWSP statement.",
-                        "Utilities bill with current address (TNB or Water Bill)."
+                        "Utilities bill with current address\n(TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Personal Loan",
                     ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Personal%20Loan%20criteria%20and%20eligibility."
@@ -1105,7 +1105,7 @@
                         "6 months company statement.",
                         "Business SSM (Form 14).",
                         "Director IC.",
-                        "Utilities bill with current address (TNB or Water Bill)."
+                        "Utilities bill with current address\n(TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Business Loan",
                     ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Business%20Loan%20criteria%20and%20eligibility."
@@ -1137,7 +1137,7 @@
                         "Pay slip.",
                         "Personal IC.",
                         "Medical supporting document (quotation, invoice, or appointment letter).",
-                        "Utilities bill with current address (TNB or Water Bill)."
+                        "Utilities bill with current address\n(TNB or Water Bill)."
                     ],
                     ctaLabel: "Contact for Medical Loan",
                     ctaHref: "https://wa.me/601111335942?text=Hi%20Optimum%20Touch%2C%20I%20would%20like%20to%20check%20Medical%20Loan%20criteria%20and%20eligibility."

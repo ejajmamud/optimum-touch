@@ -178,6 +178,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label>Income Range*</label>
+                                    <select name="income_range" class="contact-one__form-input custom-select" required>
+                                        <option value="">Select Income Range</option>
+                                        <option value="below_2000">Below RM2,000</option>
+                                        <option value="2000_3500">RM2,000 - RM3,500</option>
+                                        <option value="3501_5000">RM3,501 - RM5,000</option>
+                                        <option value="5001_8000">RM5,001 - RM8,000</option>
+                                        <option value="above_8000">Above RM8,000</option>
+                                    </select>
+                                </div><!-- /.form-group-->
+                            </div><!-- /.col-md-6-->
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label>Employment Type*</label>
                                     <select id="employmentType" name="employment_type" class="contact-one__form-input custom-select" required>
                                         <option value="">Select Employment Type</option>
@@ -188,6 +201,9 @@
                                     </select>
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
+                        </div><!-- /.row-->
+
+                        <div class="row">
                             <div class="col-md-6" id="jobSalaryWrap" style="display:none;">
                                 <div class="form-group">
                                     <label>Salary (In MYR)*</label>
@@ -259,7 +275,6 @@
                                 <li><a href="service-details.html?service=personal#loan-personal"><i class="fa fa-arrow-right"></i>Personal Loan</a></li>
                                 <li><a href="service-details.html?service=business#loan-business"><i class="fa fa-arrow-right"></i>Business Loan</a></li>
                                 <li><a href="service-details.html?service=medical#loan-medical"><i class="fa fa-arrow-right"></i>Medical Loan</a></li>
-                                <li><a href="loan-calculator.html"><i class="fa fa-arrow-right"></i>Loan Calculator</a></li>
                                 <li><a href="loan-eligibility.html"><i class="fa fa-arrow-right"></i>Eligibility Check</a></li>
                             </ul><!-- /.list-unstyled -->
                         </div><!-- /.footer-widget -->
@@ -416,7 +431,7 @@
 
             if (status === 'error') {
                 alertBox.className = 'apply-simple__alert is-error';
-                alertBox.textContent = 'Please complete required fields correctly. For government and private applicants, salary (in MYR) and minimum job period of 6 months are required.';
+                alertBox.textContent = 'Please complete all required fields correctly, including income range. For government and private applicants, salary (in MYR) and a minimum job period of 6 months are required.';
             } else {
                 return;
             }

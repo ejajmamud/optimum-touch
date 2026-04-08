@@ -17,11 +17,12 @@ $name = $field('name');
 $number = $field('number');
 $location = $field('location');
 $loanAmount = $field('loan_amount');
+$incomeRange = $field('income_range');
 $employmentType = $field('employment_type');
 $jobPeriodMonths = $field('job_period_months');
 $salaryMyr = $field('salary_myr');
 
-if ($name === '' || $number === '' || $location === '' || $loanAmount === '' || $employmentType === '') {
+if ($name === '' || $number === '' || $location === '' || $loanAmount === '' || $incomeRange === '' || $employmentType === '') {
     header('Location: apply-now.html?status=error', true, 303);
     exit;
 }
@@ -38,7 +39,20 @@ $employmentLabels = [
     'business' => 'Business',
 ];
 
+$incomeRangeLabels = [
+    'below_2000' => 'Below RM2,000',
+    '2000_3500' => 'RM2,000 - RM3,500',
+    '3501_5000' => 'RM3,501 - RM5,000',
+    '5001_8000' => 'RM5,001 - RM8,000',
+    'above_8000' => 'Above RM8,000',
+];
+
 if (!array_key_exists($employmentType, $employmentLabels)) {
+    header('Location: apply-now.html?status=error', true, 303);
+    exit;
+}
+
+if (!array_key_exists($incomeRange, $incomeRangeLabels)) {
     header('Location: apply-now.html?status=error', true, 303);
     exit;
 }
@@ -61,12 +75,14 @@ if ($requiresEmploymentFields) {
 }
 
 $employmentLabel = $employmentLabels[$employmentType];
+$incomeRangeLabel = $incomeRangeLabels[$incomeRange];
 
 $msg = "";
 $msg .= "Name: " . $name . "\r\n\r\n";
 $msg .= "Number: " . $number . "\r\n\r\n";
 $msg .= "Location: " . $location . "\r\n\r\n";
 $msg .= "Loan Amount: RM" . $loanAmount . "\r\n\r\n";
+$msg .= "Income Range: " . $incomeRangeLabel . "\r\n\r\n";
 $msg .= "Employment Type: " . $employmentLabel . "\r\n\r\n";
 $msg .= "Salary (In MYR, if required): " . $salaryText . "\r\n\r\n";
 $msg .= "Job Period (if required): " . $jobPeriodText . "\r\n\r\n";

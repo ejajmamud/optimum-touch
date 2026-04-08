@@ -6091,6 +6091,7 @@ body.is-lang-bm .stricky-header .main-header__info-phone-content span {
 .funfact-one__bg {
   position: absolute;
   background-color: var(--thm-base);
+  background-image: none !important;
   top: 0;
   left: 0;
   right: 0;
@@ -8314,6 +8315,7 @@ body.is-lang-bm .stricky-header .main-header__info-phone-content span {
   color: #234b3f;
   font-weight: 600;
   line-height: 1.45;
+  white-space: pre-line;
 }
 
 .service-details__criteria-card .thm-btn {
@@ -19772,6 +19774,7 @@ select,
 .about-story__lead,
 .about-story .block-text {
   color: #2c4a3f;
+  margin-left: 0;
 }
 
 .about-story__lead {
@@ -20811,6 +20814,10 @@ select,
 .service-one--home .service-one__content-face--back > p,
 .service-one--home .service-one__content-face--back .service-one__criteria li {
   color: rgba(238, 255, 248, 0.96);
+}
+
+.service-one--home .service-one__content-face--back .service-one__criteria li {
+  white-space: pre-line;
 }
 
 .service-one--home .service-one__content-face--front > p {
