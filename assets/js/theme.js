@@ -284,7 +284,7 @@
 
     // Global language switch (EN/BM) with full-page translation.
     var langPrefStorageKey = "ot_site_language_pref";
-    var langCacheStorageKey = "ot_site_language_cache_v2";
+    var langCacheStorageKey = "ot_site_language_cache_v3";
     var activeLang = "en";
     var langCache = {};
     var trackedTextNodes = [];
@@ -294,11 +294,12 @@
     var applyingLanguageCount = 0;
     var languageRunId = 0;
     var reapplyTimer = null;
+    var dataBmStore = [];
     var manualMalayMap = {
         "Apply Now": "Mohon Sekarang",
         "Contact Us": "Hubungi Kami",
         "Contact our agent": "Hubungi ejen kami",
-        "Speak to an Agent": "Berbincang dengan Ejen",
+        "Speak to an Agent": "Hubungi perunding kami",
         "Company Profile": "Profil Syarikat",
         "Company News": "Berita Syarikat",
         "FAQs": "Soalan Lazim",
@@ -320,17 +321,17 @@
         "Check Eligibility": "Semak Kelayakan",
         "Eligibility Check": "Semakan Kelayakan",
         "Are You?": "Adakah Anda?",
-        "Looking for RM 2,000 to RM 20,000": "Mencari RM 2,000 hingga RM 20,000",
-        "Need a short tenure: 2-18 months": "Mahukan tempoh singkat: 2-18 bulan",
+        "Looking for RM 2,000 to RM 20,000": "Pembiayaan dari RM2,000 hingga RM20,000",
+        "Need a short tenure: 2-18 months": "Tempoh singkat dari 2-18 bulan",
         "Malaysian citizen": "Warganegara Malaysia",
         "Below 55 years old": "Berumur bawah 55 tahun",
         "Not bankrupt": "Tidak muflis",
-        "We can help.": "Kami boleh bantu.",
+        "We're here to help.": "Kami dapat bantu.",
         "Walk in by appointment only.": "Kunjungan walk-in melalui temu janji sahaja.",
         "View Checklist": "Lihat Senarai Semak",
         "Required documents": "Dokumen diperlukan",
         "How the Process Works": "Bagaimana Proses Berjalan",
-        "How Our Process Works": "Bagaimana Proses Kami Berjalan",
+        "How Our Process Works": "Proses Kami",
         "Qualification to Apply": "Kelayakan untuk Memohon",
         "Share basic details. We quickly confirm if you qualify.": "Kongsi maklumat asas. Kami sahkan dengan cepat sama ada anda layak.",
         "Getting in Touch": "Berhubung dengan Anda",
@@ -342,7 +343,22 @@
         "Final approval is subject to document review, affordability, and signed agreement.": "Kelulusan akhir tertakluk kepada semakan dokumen, kemampuan bayaran, dan perjanjian yang ditandatangani.",
         "Operates as a licensed moneylender in Malaysia.": "Beroperasi sebagai pemberi pinjam wang berlesen di Malaysia.",
         "Identity checks, document review, and agreement signing are conducted face-to-face at the office.": "Semakan identiti, dokumen, dan perjanjian dibuat secara bersemuka di pejabat.",
-        "Rates, charges, and repayment schedule are explained in writing before signing.": "Kadar, caj, dan jadual bayaran diterangkan secara bertulis sebelum tandatangan."
+        "Rates, charges, and repayment schedule are explained in writing before signing.": "Kadar, caj, dan jadual bayaran diterangkan secara bertulis sebelum tandatangan.",
+        "Have an active income source": "Pendapatan aktif",
+        "Show More": "Maklumat Lanjut",
+        "Licensed Malaysian Moneylender": "Pinjaman Wang Berlesen",
+        "Our team will contact you to better understand how we can help.": "Menghubungi anda untuk makluman lanjut",
+        "Document verification, discussion of terms, signing of the agreement, and immediate loan disbursement.": "Datang ke pejabat, untuk dapatkan pembayaran",
+        "Clear, Structured Loan Services for Real-Life Needs": "Penyelesaian Pinjaman yang Telus dan Berstruktur",
+        "The Optimum Touch Story Since 2006.": "Kisah Optimum Touch Sdn. Bhd. Sejak 2006",
+        "Fully Licensed under KPKT": "Peminjam Berlesen Penuh",
+        "No withholding of ATM cards": "Tiada tahan kad ATM",
+        "No Hidden Deductions": "100% telus, tiada caj tersembunyi",
+        "We operate as a registered and regulated moneylending business, following legal procedures designed to protect borrowers with proper records and accountable processes.": "Kami adalah syarikat pinjaman wang berdaftar yang mematuhi undang-undang untuk memastikan perlindungan kepada peminjam (KPKT)",
+        "No advance collection is requested before official signing; fees and charges are disclosed in black and white during consultation.": "Tiada bayaran awal. Caj dan yuran dijelaskan dengan jelas masa perundingan.",
+        "No lender should keep your ATM card, PIN, or account control; repayment must stay under your own authorisation for safer and traceable transactions.": "Tiada kad ATM, PIN atau akses akaun akan disimpan oleh kami. Bayaran balik dibuat terus pada akaun syarikat untuk keselamatan dan boleh dikesan.",
+        "Once agreement have been signed funds are immediately transfered to borrowers bank account.": "Dana akan dipindahkan ke akaun bank peminjam sejurus selepas perjanjian ditandatangani.",
+        "Disbursement and repayment details are documented clearly so there are no surprise deductions.": "Semua butiran pembayaran dan bayaran balik dinyatakan dengan jelas dan telus tanpa sebarang caj tersembunyi."
     };
 
     try {
@@ -370,6 +386,38 @@
         } catch (e) {
             // Ignore storage quota errors.
         }
+    };
+
+    var syncMalayServiceCardHeights = function () {
+        var cards = document.querySelectorAll(".services-page .service-modern__grid--loans .service-modern__card--flip");
+        if (!cards.length) {
+            return;
+        }
+
+        cards.forEach(function (card) {
+            card.style.removeProperty("min-height");
+            var inner = card.querySelector(".service-modern__card-inner");
+            if (inner) {
+                inner.style.removeProperty("min-height");
+            }
+        });
+
+        if (activeLang !== "bm") {
+            return;
+        }
+
+        cards.forEach(function (card) {
+            var inner = card.querySelector(".service-modern__card-inner");
+            var front = card.querySelector(".service-modern__card-face--front");
+            var back = card.querySelector(".service-modern__card-face--back");
+            if (!inner || !front || !back) {
+                return;
+            }
+
+            var nextHeight = Math.max(front.scrollHeight, back.scrollHeight) + 16;
+            card.style.minHeight = nextHeight + "px";
+            inner.style.minHeight = nextHeight + "px";
+        });
     };
 
     var getLangToggleMarkup = function (variant) {
@@ -462,17 +510,16 @@
                 link.innerHTML = link.__i18nMenuOriginalHTML;
             } else {
                 var bmLabel = link.__i18nMenuMalayText || (link.textContent || "").replace(/\s+/g, " ").trim();
-                var words = bmLabel.split(/\s+/).filter(Boolean);
-                if (words.length === 2) {
-                    link.innerHTML = '<span class="lang-break">' + words[0] + "<br>" + words[1] + "</span>";
-                } else {
-                    link.textContent = bmLabel;
-                }
+                link.textContent = bmLabel;
             }
 
             var isDesktopNav = link.closest(".main-header .main-menu__list, .stricky-header .main-menu__list");
             if (isDesktopNav) {
-                link.style.width = (link.__i18nMenuStableWidth || 88) + "px";
+                if (lang === "bm") {
+                    link.style.removeProperty("width");
+                } else {
+                    link.style.width = (link.__i18nMenuStableWidth || 88) + "px";
+                }
             } else {
                 link.style.removeProperty("width");
             }
@@ -772,10 +819,37 @@
             }
             target.element.setAttribute(target.attrName, leading + translatedCore + trailing);
         });
+
+        applyDataBmAttributes();
+    };
+
+    var applyDataBmAttributes = function () {
+        document.querySelectorAll("[data-bm]").forEach(function (el) {
+            if (el.closest("[data-no-translate]")) {
+                return;
+            }
+            if (typeof el.__dataBmOriginalHTML === "undefined") {
+                el.__dataBmOriginalHTML = el.innerHTML;
+                dataBmStore.push(el);
+            }
+            el.innerHTML = el.getAttribute("data-bm");
+        });
+    };
+
+    var restoreDataBmAttributes = function () {
+        dataBmStore = dataBmStore.filter(function (el) {
+            if (!el || !el.isConnected || typeof el.__dataBmOriginalHTML === "undefined") {
+                return false;
+            }
+            el.innerHTML = el.__dataBmOriginalHTML;
+            return true;
+        });
     };
 
     var restoreEnglish = function () {
         document.title = originalDocumentTitle;
+
+        restoreDataBmAttributes();
 
         trackedTextNodes = trackedTextNodes.filter(function (node) {
             if (!node || !node.isConnected || typeof node.__i18nOriginalText === "undefined") {
@@ -838,6 +912,7 @@
                 return;
             }
             formatMenuLabelsForLanguage(activeLang);
+            syncMalayServiceCardHeights();
         } finally {
             applyingLanguageCount = Math.max(0, applyingLanguageCount - 1);
             isApplyingLanguage = applyingLanguageCount > 0;
@@ -922,17 +997,40 @@
         }, delayMs);
     };
 
-    if (activeLang === "bm") {
+    var restoreSavedLanguageOnPage = function () {
+        if (activeLang !== "bm") {
+            syncLanguageSwitchUi(activeLang);
+            return;
+        }
         setLanguage("bm", true);
         scheduleMalayRefresh(180);
         scheduleMalayRefresh(850);
-        window.addEventListener("pageshow", function () {
+    };
+
+    restoreSavedLanguageOnPage();
+
+    document.addEventListener("DOMContentLoaded", function () {
+        restoreSavedLanguageOnPage();
+    });
+
+    window.addEventListener("pageshow", function () {
+        if (activeLang === "bm") {
             scheduleMalayRefresh(80);
-        });
-        window.addEventListener("load", function () {
+            window.setTimeout(syncMalayServiceCardHeights, 120);
+        }
+    });
+
+    window.addEventListener("load", function () {
+        if (activeLang === "bm") {
             scheduleMalayRefresh(40);
-        });
-    }
+            window.setTimeout(syncMalayServiceCardHeights, 120);
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        window.clearTimeout(reapplyTimer);
+        reapplyTimer = window.setTimeout(syncMalayServiceCardHeights, 120);
+    });
 
     // Keep hero clip section exactly viewport-height including live header height.
     var syncClipHeroViewport = function () {

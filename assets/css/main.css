@@ -20991,6 +20991,19 @@ select,
     right: 24px;
     bottom: 24px;
   }
+  .service-one--home .service-one__grid {
+    --bs-gutter-x: 24px;
+    --bs-gutter-y: 24px;
+  }
+
+  .service-one--home .service-one__grid > [class*="col-"] {
+    display: flex;
+  }
+
+  .service-one--home + .feature-one {
+    margin-top: 0;
+    padding-top: 72px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -21142,13 +21155,6 @@ select,
 
 .service-one--home + .feature-one .block-title {
   margin-top: 0;
-}
-
-@media (max-width: 1199px) and (min-width: 768px) {
-  .service-one--home + .feature-one {
-    margin-top: -340px;
-    padding-top: 396px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -22403,6 +22409,54 @@ select,
   color: rgba(236, 255, 248, 0.96);
 }
 
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face h4,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face p,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face ul li,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__flip-hint,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__flip-note {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face {
+  gap: 10px;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face p,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face ul li {
+  line-height: 1.5;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face--back {
+  justify-content: flex-start;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face--back p,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face--back ul li {
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face--back h4 {
+  font-size: 24px;
+  line-height: 1.16;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face--back ul {
+  margin-top: 2px;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__flip-note {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.28;
+}
+
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__flip-hint,
+body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__flip-note {
+  display: none;
+}
+
 .services-page .service-modern__grid--loans .service-modern__card-link:hover .service-modern__card-face,
 .services-page .service-modern__grid--loans .service-modern__card-link:focus-visible .service-modern__card-face {
   border-color: rgba(237, 255, 247, 0.72);
@@ -22553,6 +22607,29 @@ select,
   .services-page .service-modern__step-no {
     padding: 5px 9px;
     letter-spacing: 0.11em;
+  }
+}
+
+@media (min-width: 768px) {
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card--flip,
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-inner {
+    min-height: clamp(520px, 50vw, 620px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card--flip,
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-inner {
+    min-height: clamp(540px, 56vw, 640px);
+  }
+
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face {
+    padding: 24px 20px 22px;
+  }
+
+  body.is-lang-bm .services-page .service-modern__grid--loans .service-modern__card-face h4 {
+    font-size: 25px;
+    line-height: 1.18;
   }
 }
 
@@ -24608,4 +24685,19 @@ body.mobile-nav-open .whatsapp-float {
     line-height: 1.5;
     padding: 9px 10px;
   }
+}
+
+/* Keep sentence starts capitalized inside card content across languages */
+.service-one--home .service-one__use-list li::first-letter,
+.service-one--home .service-one__content-face--back > p::first-letter,
+.service-one--home .service-one__criteria li::first-letter,
+.service-modern__card p::first-letter,
+.service-modern__card ul li::first-letter,
+.service-details__criteria-card p::first-letter,
+.service-details__criteria-card .service-details__list li::first-letter,
+.about-story__milestone-face p::first-letter,
+.about-story__milestone-list li::first-letter,
+.loan-hub--quick .loan-hub__quick-list li::first-letter,
+.blog-card__excerpt::first-letter {
+  text-transform: uppercase;
 }
