@@ -24701,3 +24701,344 @@ body.mobile-nav-open .whatsapp-float {
 .blog-card__excerpt::first-letter {
   text-transform: uppercase;
 }
+
+/* ===============================================================
+   RG Kamyaabi-style footer restructure
+=============================================================== */
+.site-footer.site-footer--rg-style {
+  background: #061421;
+  background-image: none;
+  padding-top: 108px;
+  padding-bottom: 88px;
+}
+
+.site-footer--rg-style .container,
+.bottom-footer--rg-style .container {
+  max-width: 1424px;
+}
+
+.site-footer--rg-style .footer-rg__grid {
+  row-gap: 40px;
+}
+
+.site-footer--rg-style .footer-widget {
+  margin-bottom: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-footer--rg-style .footer-rg__brand {
+  max-width: 280px;
+}
+
+.site-footer--rg-style .footer-rg__logo-link {
+  display: inline-block;
+  margin-bottom: 28px;
+}
+
+.site-footer--rg-style .footer-widget__about > a img {
+  width: clamp(210px, 14vw, 242px);
+  max-width: 100%;
+  height: auto;
+}
+
+.site-footer--rg-style .footer-rg__tagline {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #e8e3d8;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.site-footer--rg-style .footer-widget__title,
+.site-footer--rg-style .footer-widget__contact h3 {
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.site-footer--rg-style .footer-widget__link-list {
+  margin-top: 0;
+}
+
+.site-footer--rg-style .footer-widget__link-list li + li {
+  margin-top: 18px;
+}
+
+.site-footer--rg-style .footer-widget__link-list li a {
+  display: inline;
+  color: #e8e3d8;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.32;
+  text-decoration: none;
+}
+
+.site-footer--rg-style .footer-widget__link-list li a i {
+  display: none;
+}
+
+.site-footer--rg-style .footer-widget__link-list li a:hover,
+.site-footer--rg-style .footer-widget__contact-list li a:hover {
+  color: #ffffff;
+}
+
+.site-footer--rg-style .footer-rg__license {
+  margin-left: 0;
+}
+
+.site-footer--rg-style .footer-rg__license-list p {
+  margin: 0;
+  color: #e8e3d8;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.46;
+}
+
+.site-footer--rg-style .footer-rg__license-list p + p {
+  margin-top: 14px;
+}
+
+.site-footer--rg-style .footer-rg__license-list p:nth-child(3),
+.site-footer--rg-style .footer-rg__license-list p:nth-child(5),
+.site-footer--rg-style .footer-rg__license-list p:nth-child(7),
+.site-footer--rg-style .footer-rg__license-list p:nth-child(8) {
+  margin-top: 34px;
+}
+
+.site-footer--rg-style .footer-rg__license-list--compliance p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.site-footer--rg-style .footer-rg__license-list--compliance p + p {
+  margin-top: 10px;
+}
+
+.site-footer--rg-style .footer-rg__license-list--compliance p:nth-child(n) {
+  margin-top: 10px;
+}
+
+.site-footer--rg-style .footer-rg__license-list--compliance p:first-child {
+  margin-top: 0;
+}
+
+.site-footer--rg-style .footer-rg__license-list--compliance strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.site-footer--rg-style .footer-rg__kpkt-notice {
+  margin-top: 18px !important;
+  padding-top: 16px;
+  border-top: 1px solid rgba(137, 164, 189, 0.18);
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  text-transform: uppercase;
+}
+
+.site-footer--rg-style .footer-rg__kpkt-notice a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bottom-footer.bottom-footer--rg-style {
+  background: #061421;
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+
+.bottom-footer--rg-style .container {
+  justify-content: center !important;
+  border-top: 1px solid rgba(137, 164, 189, 0.18);
+  padding-top: 24px;
+  text-align: center;
+}
+
+.bottom-footer--rg-style p {
+  width: 100%;
+  margin: 0 !important;
+  color: #d9d1c3;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+@media (max-width: 991px) {
+  .site-footer.site-footer--rg-style {
+    padding-top: 84px;
+    padding-bottom: 68px;
+  }
+
+  .site-footer--rg-style .footer-rg__brand {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer.site-footer--rg-style {
+    overflow: hidden;
+    padding-top: 90px;
+    padding-bottom: 28px;
+  }
+
+  .site-footer--rg-style .footer-rg__grid {
+    row-gap: 0;
+    text-align: center;
+  }
+
+  .site-footer--rg-style .row > [class*="col-"]:first-child .footer-rg__brand {
+    display: block;
+  }
+
+  .site-footer--rg-style .row > [class*="col-"],
+  .site-footer--rg-style .row > [class*="col-"]:nth-child(2),
+  .site-footer--rg-style .row > [class*="col-"]:nth-child(3) {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .site-footer--rg-style .footer-rg__logo-link {
+    grid-column: auto;
+    grid-row: auto;
+    margin-bottom: 28px;
+  }
+
+  .site-footer--rg-style .row > [class*="col-"]:first-child .footer-widget__about > a img,
+  .site-footer--rg-style .footer-widget__about > a img {
+    width: min(250px, 72vw);
+  }
+
+  .site-footer--rg-style .row > [class*="col-"]:first-child .footer-widget__about > p.footer-rg__tagline,
+  .site-footer--rg-style .footer-rg__tagline {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    color: #e8e3d8;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .site-footer--rg-style .footer-rg__links,
+  .site-footer--rg-style .footer-rg__services,
+  .site-footer--rg-style .footer-rg__license {
+    padding: 0;
+  }
+
+  .site-footer--rg-style .footer-widget__title,
+  .site-footer--rg-style .footer-widget__contact h3 {
+    margin-bottom: 22px;
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .site-footer--rg-style .footer-widget__link-list li + li {
+    margin-top: 18px;
+  }
+
+  .site-footer--rg-style .footer-widget__link-list li a {
+    font-size: 19px;
+    line-height: 1.3;
+  }
+
+  .site-footer--rg-style .footer-rg__services-col,
+  .site-footer--rg-style .footer-rg__license-col {
+    margin-top: 44px;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list p {
+    color: #e8e3d8;
+    font-size: 20px;
+    line-height: 1.48;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list--compliance p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list p + p {
+    margin-top: 16px;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list--compliance p + p,
+  .site-footer--rg-style .footer-rg__license-list--compliance p:nth-child(n) {
+    margin-top: 12px;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list--compliance p:first-child {
+    margin-top: 0;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list p:nth-child(3),
+  .site-footer--rg-style .footer-rg__license-list p:nth-child(5),
+  .site-footer--rg-style .footer-rg__license-list p:nth-child(7),
+  .site-footer--rg-style .footer-rg__license-list p:nth-child(8) {
+    margin-top: 34px;
+  }
+
+  .bottom-footer.bottom-footer--rg-style {
+    padding-top: 0;
+    padding-bottom: 18px;
+  }
+
+  .bottom-footer--rg-style .container {
+    border-top-color: rgba(137, 164, 189, 0.16);
+    padding-top: 20px;
+  }
+
+  .bottom-footer--rg-style p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .site-footer.site-footer--rg-style {
+    padding-top: 88px;
+    padding-bottom: 26px;
+  }
+
+  .site-footer--rg-style .footer-rg__tagline {
+    font-size: 19px;
+  }
+
+  .site-footer--rg-style .footer-widget__title,
+  .site-footer--rg-style .footer-widget__contact h3 {
+    font-size: 27px;
+  }
+
+  .site-footer--rg-style .footer-widget__link-list li a,
+  .site-footer--rg-style .footer-rg__license-list p {
+    font-size: 19px;
+  }
+
+  .site-footer--rg-style .footer-rg__license-list--compliance p {
+    font-size: 16px;
+  }
+
+  .site-footer--rg-style .footer-rg__kpkt-notice {
+    font-size: 12px !important;
+  }
+
+  .site-footer--rg-style .footer-rg__services-col,
+  .site-footer--rg-style .footer-rg__license-col {
+    margin-top: 42px;
+  }
+}
