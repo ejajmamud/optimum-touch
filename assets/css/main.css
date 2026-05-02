@@ -24848,6 +24848,7 @@ body.mobile-nav-open .whatsapp-float {
   color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-transform: lowercase;
 }
 
 .bottom-footer.bottom-footer--rg-style {
