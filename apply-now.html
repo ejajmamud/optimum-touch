@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="assets/css/nouislider.pips.css">
 
     <!-- site styles -->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260502-02">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260506-01">
 </head>
 
 <body class="apply-page">
@@ -137,8 +137,8 @@
                                             <i class="apply-simple__agent-icon apply-simple__agent-icon--phone fas fa-phone-volume"></i>
                                         </span>
                                         <span class="apply-simple__agent-rotator" aria-hidden="true">
-                                            <span class="apply-simple__agent-label apply-simple__agent-label--text">Speak to an Agent</span>
-                                            <span class="apply-simple__agent-label apply-simple__agent-label--phone">+60 12 3285942</span>
+                                            <span class="apply-simple__agent-label apply-simple__agent-label--text" data-bm="Hubungi Pakar Kami">Speak to an Agent</span>
+                                            <span class="apply-simple__agent-label apply-simple__agent-label--phone" data-bm="Hubungi Pakar Kami">+60 12 3285942</span>
                                         </span>
                                     </a>
                                 </div>
@@ -154,7 +154,7 @@
                             </div><!-- /.col-md-6-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Number*</label>
+                                    <label data-bm="Nombor HP*">Number*</label>
                                     <input type="tel" name="number" class="form-control contact-one__form-input" placeholder="Mobile Number" required>
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
@@ -169,7 +169,7 @@
                             </div><!-- /.col-md-6-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Loan Amount*</label>
+                                    <label data-bm="Jumlah Pinjaman*">Loan Amount*</label>
                                     <input type="number" name="loan_amount" class="form-control contact-one__form-input" placeholder="RM Amount" min="2000" max="20000" required>
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
@@ -178,9 +178,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Income Range*</label>
+                                    <label data-bm="Pendapatan bulanan*">Income Range*</label>
                                     <select name="income_range" class="contact-one__form-input custom-select" required>
-                                        <option value="">Select Income Range</option>
+                                        <option value="" data-bm="Pilih Julat Pendapatan">Select Income Range</option>
                                         <option value="below_2000">Below RM2,000</option>
                                         <option value="2000_3500">RM2,000 - RM3,500</option>
                                         <option value="3501_5000">RM3,501 - RM5,000</option>
@@ -191,9 +191,9 @@
                             </div><!-- /.col-md-6-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Employment Type*</label>
+                                    <label data-bm="Jenis Pekerjaan*">Employment Type*</label>
                                     <select id="employmentType" name="employment_type" class="contact-one__form-input custom-select" required>
-                                        <option value="">Select Employment Type</option>
+                                        <option value="" data-bm="Pilih Jenis Pekerjaan">Select Employment Type</option>
                                         <option value="government">Government</option>
                                         <option value="private">Private</option>
                                         <option value="self_employed">Self Employed</option>
@@ -206,7 +206,7 @@
                         <div class="row">
                             <div class="col-md-6" id="jobSalaryWrap" style="display:none;">
                                 <div class="form-group">
-                                    <label>Salary (In MYR)*</label>
+                                    <label data-bm="Pendapatan bulanan*">Salary (In MYR)*</label>
                                     <input type="number" id="jobSalaryMyr" name="salary_myr" class="form-control contact-one__form-input" placeholder="Monthly Salary in MYR" min="1" step="1">
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
@@ -215,7 +215,7 @@
                         <div class="row">
                             <div class="col-md-6" id="jobPeriodWrap" style="display:none;">
                                 <div class="form-group">
-                                    <label>Job Period (Months)*</label>
+                                    <label data-bm="Tempoh Kerja (Bulan)*">Job Period (Months)*</label>
                                     <input type="number" id="jobPeriodMonths" name="job_period_months" class="form-control contact-one__form-input" placeholder="Minimum 6 months" min="6">
                                 </div><!-- /.form-group-->
                             </div><!-- /.col-md-6-->
@@ -225,7 +225,7 @@
                     <div class="contact-one__form-submit">
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="submit" value="Submit Application" class="thm-btn">
+                                <input type="submit" value="Submit Application" class="thm-btn" data-bm-value="Hantar Permohonan">
                             </div>
                             <!--/.col-md-12-->
                         </div>
@@ -434,11 +434,8 @@
     </script>
 
     <!-- site js -->
-    <script src="assets/js/theme.js?v=20260412-01"></script>
+    <script src="assets/js/theme.js?v=20260506-01"></script>
 </body>
 
 </html>
-
-
-
 

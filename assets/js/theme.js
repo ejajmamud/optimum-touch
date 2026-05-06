@@ -284,7 +284,7 @@
 
     // Global language switch (EN/BM) with full-page translation.
     var langPrefStorageKey = "ot_site_language_pref";
-    var langCacheStorageKey = "ot_site_language_cache_v3";
+    var langCacheStorageKey = "ot_site_language_cache_v4";
     var activeLang = "en";
     var langCache = {};
     var trackedTextNodes = [];
@@ -298,8 +298,9 @@
     var manualMalayMap = {
         "Apply Now": "Mohon Sekarang",
         "Contact Us": "Hubungi Kami",
-        "Contact our agent": "Hubungi ejen kami",
-        "Speak to an Agent": "Hubungi perunding kami",
+        "Contact our agent": "Hubungi Pakar Kami",
+        "Speak to an Agent": "Hubungi Pakar Kami",
+        "Speak to Agent": "Hubungi Pakar Kami",
         "Company Profile": "Profil Syarikat",
         "Company News": "Berita Syarikat",
         "FAQs": "Soalan Lazim",
@@ -321,17 +322,16 @@
         "Check Eligibility": "Semak Kelayakan",
         "Eligibility Check": "Semakan Kelayakan",
         "Are You?": "Adakah Anda?",
-        "Looking for RM 2,000 to RM 20,000": "Pembiayaan dari RM2,000 hingga RM20,000",
+        "Looking for RM 2,000 to RM 20,000": "Perlukan Pembiayaan dari RM2,000 hingga RM20,000",
         "Need a short tenure: 2-18 months": "Tempoh singkat dari 2-18 bulan",
         "Malaysian citizen": "Warganegara Malaysia",
         "Below 55 years old": "Berumur bawah 55 tahun",
         "Not bankrupt": "Tidak muflis",
         "We're here to help.": "Kami dapat bantu.",
-        "Walk in by appointment only.": "Kunjungan walk-in melalui temu janji sahaja.",
         "View Checklist": "Lihat Senarai Semak",
         "Required documents": "Dokumen diperlukan",
-        "How the Process Works": "Bagaimana Proses Berjalan",
-        "How Our Process Works": "Proses Kami",
+        "How the Process Works": "Proses Aplikasi",
+        "How Our Process Works": "Proses Aplikasi",
         "Qualification to Apply": "Kelayakan untuk Memohon",
         "Share basic details. We quickly confirm if you qualify.": "Kongsi maklumat asas. Kami sahkan dengan cepat sama ada anda layak.",
         "Getting in Touch": "Berhubung dengan Anda",
@@ -350,15 +350,49 @@
         "Our team will contact you to better understand how we can help.": "Menghubungi anda untuk makluman lanjut",
         "Document verification, discussion of terms, signing of the agreement, and immediate loan disbursement.": "Datang ke pejabat, untuk dapatkan pembayaran",
         "Clear, Structured Loan Services for Real-Life Needs": "Penyelesaian Pinjaman yang Telus dan Berstruktur",
-        "The Optimum Touch Story Since 2006.": "Kisah Optimum Touch Sdn. Bhd. Sejak 2006",
-        "Fully Licensed under KPKT": "Peminjam Berlesen Penuh",
-        "No withholding of ATM cards": "Tiada tahan kad ATM",
+        "The Optimum Touch Story Since 2006.": "Optimum Touch Sdn. Bhd. Sejak 2006",
+        "Fully Licensed under KPKT": "Mengikuti Undang-Undang KPKT",
+        "No withholding of ATM cards": "Kad ATM anda kekal di tangan anda",
         "No Hidden Deductions": "100% telus, tiada caj tersembunyi",
         "We operate as a registered and regulated moneylending business, following legal procedures designed to protect borrowers with proper records and accountable processes.": "Kami adalah syarikat pinjaman wang berdaftar yang mematuhi undang-undang untuk memastikan perlindungan kepada peminjam (KPKT)",
         "No advance collection is requested before official signing; fees and charges are disclosed in black and white during consultation.": "Tiada bayaran awal. Caj dan yuran dijelaskan dengan jelas masa perundingan.",
         "No lender should keep your ATM card, PIN, or account control; repayment must stay under your own authorisation for safer and traceable transactions.": "Tiada kad ATM, PIN atau akses akaun akan disimpan oleh kami. Bayaran balik dibuat terus pada akaun syarikat untuk keselamatan dan boleh dikesan.",
         "Once agreement have been signed funds are immediately transfered to borrowers bank account.": "Dana akan dipindahkan ke akaun bank peminjam sejurus selepas perjanjian ditandatangani.",
-        "Disbursement and repayment details are documented clearly so there are no surprise deductions.": "Semua butiran pembayaran dan bayaran balik dinyatakan dengan jelas dan telus tanpa sebarang caj tersembunyi."
+        "Disbursement and repayment details are documented clearly so there are no surprise deductions.": "Semua butiran pembayaran dan bayaran balik dinyatakan dengan jelas dan telus tanpa sebarang caj tersembunyi.",
+        "What Our Customers Say": "Testimoni",
+        "Loan Services Available": "Perkhidmatan Pinjaman Tersedia",
+        "When you are in need of financing for": "Pembiayaan Untuk:",
+        "When your business requires": "Pembiayaan Untuk:",
+        "For medical emergencies requiring": "Pembiayaan Untuk:",
+        "Personal IC": "Salinan Kad Pengenalan",
+        "Personal IC.": "Salinan Kad Pengenalan.",
+        "Malaysian IC": "Salinan Kad Pengenalan",
+        "Director IC": "Salinan Kad Pengenalan Pengarah",
+        "Director IC.": "Salinan Kad Pengenalan Pengarah.",
+        "Director Malaysian IC": "Salinan Kad Pengenalan Pengarah",
+        "Clear Repayment Schedule in Writing": "Jadual Pembayaran Balik Yang Jelas",
+        "LHDN-Stamped Legal Documents": "Dokumen Disetem Oleh LHDN",
+        "Contact & Office Visit": "Hubungi Kami",
+        "Office Visit by Appointment Only": "Lawatan Pejabat Secara Temujanji",
+        "Walk in by appointment only.": "Lawatan Pejabat Secara Temujanji",
+        "Send Your Enquiry": "Hantar Pertanyaan Anda",
+        "Email Address": "Laman E-mel",
+        "Mobile Number": "Nombor HP",
+        "Number": "Nombor HP",
+        "Number*": "Nombor HP*",
+        "Tell us how we can help": "Keperluan pembiayaan",
+        "Loan Amount": "Jumlah Pinjaman",
+        "Loan Amount*": "Jumlah Pinjaman*",
+        "Income Range": "Pendapatan bulanan",
+        "Income Range*": "Pendapatan bulanan*",
+        "Select Income Range": "Pilih Julat Pendapatan",
+        "Employment Type": "Jenis Pekerjaan",
+        "Employment Type*": "Jenis Pekerjaan*",
+        "Select Employment Type": "Pilih Jenis Pekerjaan",
+        "Salary (In MYR)": "Pendapatan bulanan",
+        "Salary (In MYR)*": "Pendapatan bulanan*",
+        "Monthly Salary in MYR": "Pendapatan bulanan",
+        "Submit Application": "Hantar Permohonan"
     };
 
     try {
@@ -834,15 +868,52 @@
             }
             el.innerHTML = el.getAttribute("data-bm");
         });
+
+        [
+            ["data-bm-placeholder", "placeholder"],
+            ["data-bm-title", "title"],
+            ["data-bm-aria-label", "aria-label"],
+            ["data-bm-alt", "alt"],
+            ["data-bm-value", "value"]
+        ].forEach(function (pair) {
+            var dataAttr = pair[0];
+            var nativeAttr = pair[1];
+
+            document.querySelectorAll("[" + dataAttr + "]").forEach(function (el) {
+                if (el.closest("[data-no-translate]")) {
+                    return;
+                }
+                var storeKey = "__dataBmOriginalAttr_" + nativeAttr.replace(/-/g, "_");
+                if (typeof el[storeKey] === "undefined") {
+                    el[storeKey] = el.getAttribute(nativeAttr) || "";
+                    dataBmStore.push(el);
+                }
+                el.setAttribute(nativeAttr, el.getAttribute(dataAttr));
+            });
+        });
     };
 
     var restoreDataBmAttributes = function () {
         dataBmStore = dataBmStore.filter(function (el) {
-            if (!el || !el.isConnected || typeof el.__dataBmOriginalHTML === "undefined") {
+            if (!el || !el.isConnected) {
                 return false;
             }
-            el.innerHTML = el.__dataBmOriginalHTML;
-            return true;
+            var restored = false;
+
+            if (typeof el.__dataBmOriginalHTML !== "undefined") {
+                el.innerHTML = el.__dataBmOriginalHTML;
+                restored = true;
+            }
+
+            ["placeholder", "title", "aria-label", "alt", "value"].forEach(function (nativeAttr) {
+                var storeKey = "__dataBmOriginalAttr_" + nativeAttr.replace(/-/g, "_");
+                if (typeof el[storeKey] !== "undefined") {
+                    el.setAttribute(nativeAttr, el[storeKey]);
+                    restored = true;
+                }
+            });
+
+            return restored;
         });
     };
 
