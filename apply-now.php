@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'smtp_mailer.php';
+
 $to = 'support@creditoptimum.com';
 $subject = 'Apply Now Form';
 
@@ -87,9 +89,12 @@ $msg .= "Employment Type: " . $employmentLabel . "\r\n\r\n";
 $msg .= "Salary (In MYR, if required): " . $salaryText . "\r\n\r\n";
 $msg .= "Job Period (if required): " . $jobPeriodText . "\r\n\r\n";
 
-$headers = "From: support@creditoptimum.com\r\n";
-
-$mail = @mail($to, $subject, $msg, $headers);
+$mail = sendSmtpMail(
+    $to,
+    $subject,
+    $msg,
+    'web@creditoptimum.my'
+);
 
 // Fallback storage so application still works before SMTP setup.
 $stored = false;

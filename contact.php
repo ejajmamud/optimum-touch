@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'smtp_mailer.php';
+
 $to = 'support@creditoptimum.com';
 $defaultSubject = 'Contact Us Form';
 
@@ -43,10 +45,13 @@ $body .= "Phone: " . $phone . "\r\n\r\n";
 $body .= "Subject: " . $mailSubject . "\r\n\r\n";
 $body .= "Message: " . $message . "\r\n\r\n";
 
-$headers = "From: support@creditoptimum.com\r\n";
-$headers .= "Reply-To: " . $email . "\r\n";
-
-$mailSent = @mail($to, $mailSubject, $body, $headers);
+$mailSent = sendSmtpMail(
+    $to,
+    $mailSubject,
+    $body,
+    'web@creditoptimum.my',
+    $email
+);
 
 // Fallback storage so enquiries still succeed before SMTP is configured.
 $stored = false;
